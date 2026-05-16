@@ -12,19 +12,20 @@ Use this file as durable memory for my roster identity and team-building plan.
 
 ## Core Players
 
-- 
+- Bijan Robinson
 
 ## Expendable Players
 
-- 
+- David Montgomery is movable only if the return accounts for lost starter/flex production; he should not be treated as a pure age-based sell in this format.
 
 ## Roster Holes
 
-- 
+- RB depth gets thin after Bijan Robinson, David Montgomery, Tyler Allgeier, and Jaylen Warren.
+- In this start-10 format with 4 W/R/T flex spots, usable RB depth has more weekly value than in shallower dynasty formats.
 
 ## Strategy Notes
 
-- 
+- Future late 2nds are useful optionality, but should not be treated as reliable replacements for current starter/flex RB production.
 
 ## History
 
@@ -39,3 +40,9 @@ Add dated updates here. Preserve old context unless explicitly asked to revise i
 
 - Source: API-derived
 - Note: Sleeper sync matched my roster to Drumheads (manager tytusplanck), with 10 starters and 29 players currently listed in normalized data.
+
+### 2026-05-16
+
+- Source: User-supplied summary of prior Sleeper/Chrome review
+- Note: Roster context for the David Montgomery trade discussion: Montgomery is currently a starter/flex-level piece. RB room includes Bijan Robinson, Montgomery, Tyler Allgeier, Jaylen Warren, then thinner depth such as J.K. Dobbins, Jaleel McLaughlin, Dylan Sampson, Justice Hill, and Zamir White.
+- Note: Current 2026 picks include 1.07, 2.07, 3.07, and later picks; adding 2026 2.08 would be useful but would not cleanly replace Montgomery's lineup value.

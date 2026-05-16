@@ -1,6 +1,6 @@
 # Fantasy GM Codex Instructions
 
-This repo is the source of truth for fantasy football context. Do not rely on chat memory when repo files can answer the question. Durable context belongs in `data/memory`, Sleeper API snapshots belong in `data/sleeper`, read-only browser observations belong in `data/browser-observations`, and analysis output belongs in `reports`.
+This repo is the source of truth for fantasy football context. Do not rely on chat memory when repo files can answer the question. Durable context belongs in `data/memory`, Sleeper API snapshots belong in `data/sleeper`, read-only browser observations belong in `data/browser-observations`, and analysis output belongs in the appropriate `reports` subdirectory.
 
 ## Role
 
@@ -41,6 +41,17 @@ When giving analysis, keep these categories distinct when they matter:
 - User subjective preferences
 - Uncertain projections
 - Recommendation
+
+## Report Paths
+
+Do not write Markdown reports directly under `reports/`. Use the specific subdirectory:
+
+- Trade reports: `reports/trades/`
+- Player value reports: `reports/player-values/`
+- Roster reviews: `reports/roster-reviews/`
+- Manager analysis reports: `reports/manager-analysis/`
+
+Use clear dated filenames such as `2026-05-16-montgomery-2-08-storerka.md`. If a report is accidentally created in the wrong place, move it to the correct subdirectory before declaring the work complete.
 
 ## Sleeper API
 

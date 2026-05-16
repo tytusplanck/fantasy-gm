@@ -29,7 +29,9 @@ Use this skill when the user asks:
 13. Identify whether the other manager has a reason to accept.
 14. Suggest counters when appropriate.
 15. Suggest negotiation framing when useful.
-16. Save a Markdown report under `reports/trades`.
+16. Save a Markdown report under `reports/trades/`.
+
+Do not save trade reports directly under `reports/`. If you create a report in the wrong location, move it into `reports/trades/` before finishing.
 
 ## Output Format
 
