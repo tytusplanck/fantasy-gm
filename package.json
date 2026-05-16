@@ -1,0 +1,29 @@
+{
+  "name": "fantasy-gm",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.12.1",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "sync:sleeper": "tsx src/cli/syncSleeper.ts",
+    "trade": "tsx src/cli/analyzeTrade.ts",
+    "compare": "tsx src/cli/comparePlayers.ts",
+    "value": "tsx src/cli/valuePlayer.ts",
+    "memory:update": "tsx src/cli/updateMemory.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

@@ -1,0 +1,25 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+
+# Browser state and private UI captures
+data/browser-observations/screenshots/*
+!data/browser-observations/screenshots/.gitkeep
+**/.auth/
+**/storage-state*.json
+**/cookies*.json
+
+# Regenerable Sleeper snapshots and player metadata
+data/sleeper/raw/*.json
+!data/sleeper/raw/.gitkeep
+data/sleeper/normalized/*.json
+!data/sleeper/normalized/.gitkeep
+
+# Local/editor noise
+.DS_Store
+.idea/
+.vscode/
+*.log
