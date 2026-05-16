@@ -25,6 +25,7 @@ This repo is not a lineup optimizer, dashboard, draft tool, waiver bot, or broad
 - Always suggest a counteroffer when appropriate.
 - Always suggest negotiation framing when useful.
 - Save durable insights to `data/memory` only when asked to remember, save, record, or update something.
+- When a conversation creates durable context that belongs in the repo, intermittently suggest the specific files that should be updated; ask before writing unless the user has already requested a save/update.
 - Preserve history in memory files. Do not silently overwrite old takes.
 - Before saying something works, run it or clearly label it untested.
 
