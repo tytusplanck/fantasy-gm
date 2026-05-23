@@ -22,6 +22,14 @@ export function tierFromNotes(notes: string): ValueTier {
   if (normalized.includes("strong starter") || normalized.includes("locked-in starter")) {
     return "Strong starter";
   }
+  if (
+    normalized.includes("useful starter") ||
+    normalized.includes("starter/flex") ||
+    normalized.includes("weekly starter") ||
+    normalized.includes("current starter")
+  ) {
+    return "Useful starter";
+  }
   if (normalized.includes("depth") || normalized.includes("matchup")) {
     return "Depth / matchup";
   }

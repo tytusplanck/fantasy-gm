@@ -72,5 +72,9 @@ ${result.whatWouldChangeMyMind.map((item) => `- ${item}`).join("\n")}
 ## 12. Data Gaps
 
 ${result.dataGaps.length > 0 ? result.dataGaps.map((item) => `- ${item}`).join("\n") : "- No major gaps identified by the skeleton analyzer."}
+
+## Suggested Memory Updates
+
+${result.suggestedMemoryUpdates.length > 0 ? result.suggestedMemoryUpdates.map((item) => `- ${item}`).join("\n") : "- No new durable note suggested."}
 `;
 }

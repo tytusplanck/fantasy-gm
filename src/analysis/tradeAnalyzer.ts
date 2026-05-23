@@ -38,6 +38,7 @@ export interface TradeAnalysisResult {
   suggestedCounteroffers: CounterOfferSet;
   pasteReadyMessage: string;
   whatWouldChangeMyMind: string[];
+  suggestedMemoryUpdates: string[];
   dataGaps: string[];
 }
 
@@ -83,6 +84,7 @@ export function analyzeTrade(input: TradeAnalysisInput): TradeAnalysisResult {
       "Manual player values or external rankings show a clear tier gap.",
       "The deal materially improves my starting lineup without creating a harder hole."
     ],
+    suggestedMemoryUpdates: buildSuggestedMemoryUpdates(input, parsedTrade, managerFit.suggestedMemoryUpdates),
     dataGaps
   };
 }
@@ -153,7 +155,7 @@ function collectDataGaps(input: TradeAnalysisInput, parsedTrade: ParsedTrade): s
     gaps.push("League type is not clearly documented.");
   }
   if (!input.context) {
-    gaps.push("No normalized Sleeper context found. Run pnpm sync:sleeper after configuring .env.");
+    gaps.push("No normalized Sleeper context found. Run corepack pnpm sync:sleeper after configuring .env.");
   }
   if (!input.context?.myRoster) {
     gaps.push("My roster is not identified in Sleeper context or memory.");
@@ -162,4 +164,22 @@ function collectDataGaps(input: TradeAnalysisInput, parsedTrade: ParsedTrade): s
     gaps.push("Other manager was not supplied, so acceptance realism is limited.");
   }
   return gaps;
+}
+
+function buildSuggestedMemoryUpdates(input: TradeAnalysisInput, parsedTrade: ParsedTrade, managerUpdates: string[]): string[] {
+  const updates = [...managerUpdates];
+  const assets = [...parsedTrade.assetsOut, ...parsedTrade.assetsIn];
+  const memoryText = [input.playerValues, input.playerNotes, input.tradeHistory].join("\n").toLowerCase();
+  for (const asset of assets) {
+    if (describePickValue(asset) !== "not a clear rookie-pick asset") {
+      continue;
+    }
+    if (!memoryText.includes(asset.toLowerCase())) {
+      updates.push(`${asset}: add a player value or player note if this trade discussion creates a durable price/tier view.`);
+    }
+  }
+  if (parsedTrade.assetsOut.length > 0 && parsedTrade.assetsIn.length > 0) {
+    updates.push(`Trade history: after the discussion resolves, record the result and lesson for "${input.tradeDescription}".`);
+  }
+  return [...new Set(updates)];
 }

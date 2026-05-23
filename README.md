@@ -39,7 +39,7 @@ Codex should use files in this repo instead of chat memory. Durable context belo
 
 ## Setup
 
-Node 22+ is required. This repo is configured for pnpm.
+Node 22+ is required. This repo is configured for pnpm through Corepack. Use `corepack pnpm ...` for repo commands; do not try bare `pnpm` first.
 
 ```bash
 corepack enable
@@ -70,7 +70,7 @@ MY_TEAM_NAME=
 Sync Sleeper:
 
 ```bash
-pnpm sync:sleeper
+corepack pnpm sync:sleeper
 ```
 
 The large NFL player metadata response is cached at `data/sleeper/raw/players-nfl-latest.json`. Timestamped raw sync bundles reference that cache instead of duplicating the full player file on every sync.
@@ -78,49 +78,56 @@ The large NFL player metadata response is cached at `data/sleeper/raw/players-nf
 Force refresh the large Sleeper player metadata cache:
 
 ```bash
-pnpm sync:sleeper -- --force-players
+corepack pnpm sync:sleeper -- --force-players
 ```
 
 Evaluate a trade:
 
 ```bash
-pnpm trade -- "I give Player A and a 2026 2nd for Player B" --manager "Other Manager"
+corepack pnpm trade -- "I give Player A and a 2026 2nd for Player B" --manager "Other Manager"
+```
+
+Analyze a manager:
+
+```bash
+corepack pnpm manager -- "Other Manager"
 ```
 
 Compare players:
 
 ```bash
-pnpm compare -- "Player A vs Player B"
+corepack pnpm compare -- "Player A vs Player B"
 ```
 
 Value one player:
 
 ```bash
-pnpm value -- "Player A"
+corepack pnpm value -- "Player A"
 ```
 
 Add durable memory:
 
 ```bash
-pnpm memory:update -- --file manager-tendencies --manager "Sam" "Sam tends to overvalue rookies after the NFL draft."
+corepack pnpm memory:update -- --file manager-tendencies --manager "Sam" "Sam tends to overvalue rookies after the NFL draft."
 ```
 
 Typecheck:
 
 ```bash
-pnpm typecheck
+corepack pnpm typecheck
 ```
 
 Run tests:
 
 ```bash
-pnpm test
+corepack pnpm test
 ```
 
 ## Memory Files To Edit First
 
 Start with these:
 
+- `data/memory/context-map.md`: fresh-agent read order, freshness rules, and when to suggest memory updates.
 - `data/memory/league-settings.md`: dynasty/keeper/redraft, lineup, scoring, bench, taxi, IR, playoffs, trade deadline.
 - `data/memory/my-team.md`: contender/rebuild status, core players, expendable players, roster holes.
 - `data/memory/strategy.md`: risk tolerance, preferred roster build, player archetypes.
@@ -128,7 +135,7 @@ Start with these:
 - `data/memory/player-values.md`: durable player valuation takes.
 - `data/memory/player-notes.md`: injury, role, trust, usage, and bias notes.
 
-Memory should preserve history. Do not overwrite old takes unless you intentionally want to revise them.
+Memory should preserve history. Do not overwrite old takes unless you intentionally want to revise them. When reports conflict with current memory, treat the latest memory summary and latest Sleeper snapshot as current context, and treat older reports as historical evidence.
 
 ## Browser Read-Only Observations
 
@@ -183,4 +190,4 @@ This repo does not require MCP servers. Sleeper public API calls are direct. Bro
 
 ## Current Limits
 
-The analysis logic is intentionally simple and explainable. It is a skeleton that combines local memory, Sleeper context, and skeptical trade reasoning. It does not produce perfect projections or automated prices. Add external rankings and observed league-market prices to memory to make output sharper.
+The analysis logic is intentionally simple and explainable. The CLI commands combine local memory, Sleeper context, and skeptical trade reasoning, but they are not projection engines and should not replace full repo-grounded reasoning. Add external rankings, observed league-market prices, resolved trade discussions, and evidence-based manager tendencies to memory to make future output sharper.

@@ -11,14 +11,15 @@ Use this skill when the user mentions:
 
 ## Workflow
 
-1. Read `data/memory/manager-tendencies.md`.
-2. Review their roster from `data/sleeper/normalized` if available.
-3. Review transactions and trade history if available.
-4. Identify roster needs.
-5. Identify possible biases.
-6. Separate evidence from guesses.
-7. Suggest a negotiation angle.
-8. Offer to save any new evidence-based tendency.
+1. Read `data/memory/context-map.md` when present for freshness and memory-update rules.
+2. Read `data/memory/manager-tendencies.md`.
+3. Review their roster from `data/sleeper/normalized` if available.
+4. Review transactions and trade history if available.
+5. Identify roster needs.
+6. Identify possible biases.
+7. Separate evidence from guesses.
+8. Suggest a negotiation angle.
+9. Offer to save any new evidence-based tendency.
 
 ## Output Format
 
@@ -37,3 +38,4 @@ Use this skill when the user mentions:
 - Evidence beats vibes.
 - Label guesses clearly.
 - Do not overwrite old tendency notes unless explicitly asked.
+- Use `corepack pnpm manager -- "Manager Name"` as a helper report generator when useful.

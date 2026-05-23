@@ -27,6 +27,9 @@ async function main(): Promise<void> {
   await writeTextFile(reportPath, report);
 
   info(`${result.playerName}: ${result.bestUse} / ${result.currentValueTier} / ${result.direction} / ${result.riskProfile} risk`);
+  if (result.notesToSave.length > 0) {
+    info(`Suggested memory update: ${result.notesToSave[0]}`);
+  }
   info(`Report: ${reportPath}`);
 }
 

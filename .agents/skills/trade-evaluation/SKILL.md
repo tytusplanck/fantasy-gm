@@ -14,22 +14,23 @@ Use this skill when the user asks:
 
 ## Workflow
 
-1. Load `data/memory/league-settings.md`.
-2. Load `data/memory/my-team.md`.
-3. Load the other manager roster from `data/sleeper/normalized` if known and available.
-4. Load `data/memory/player-values.md`.
-5. Load `data/memory/player-notes.md`.
-6. Load `data/memory/manager-tendencies.md`.
-7. Load relevant entries from `data/memory/trade-history.md`.
-8. Use Sleeper data from `data/sleeper` when available.
-9. Use browser-observed read-only data only if helpful and already captured.
-10. Evaluate asset value, format fit, roster impact, replacement value, positional scarcity, risk, and negotiation realism.
-11. Identify who benefits and why.
-12. Identify what could go wrong.
-13. Identify whether the other manager has a reason to accept.
-14. Suggest counters when appropriate.
-15. Suggest negotiation framing when useful.
-16. Save a Markdown report under `reports/trades/`.
+1. Load `data/memory/context-map.md` when present for freshness and memory-update rules.
+2. Load `data/memory/league-settings.md`.
+3. Load `data/memory/my-team.md`.
+4. Load the other manager roster from `data/sleeper/normalized` if known and available.
+5. Load `data/memory/player-values.md`.
+6. Load `data/memory/player-notes.md`.
+7. Load `data/memory/manager-tendencies.md`.
+8. Load relevant entries from `data/memory/trade-history.md`.
+9. Use Sleeper data from `data/sleeper` when available.
+10. Use browser-observed read-only data only if helpful and already captured.
+11. Evaluate asset value, format fit, roster impact, replacement value, positional scarcity, risk, and negotiation realism.
+12. Identify who benefits and why.
+13. Identify what could go wrong.
+14. Identify whether the other manager has a reason to accept.
+15. Suggest counters when appropriate.
+16. Suggest negotiation framing when useful.
+17. Save a Markdown report under `reports/trades/`.
 
 Do not save trade reports directly under `reports/`. If you create a report in the wrong location, move it into `reports/trades/` before finishing.
 
@@ -54,3 +55,4 @@ Do not save trade reports directly under `reports/`. If you create a report in t
 - Do not ignore league format.
 - Do not ignore my roster construction.
 - Do not auto-send, auto-accept, auto-reject, or modify Sleeper state.
+- Use `corepack pnpm trade -- "I give ..." --manager "Manager Name"` as a helper report generator when useful.

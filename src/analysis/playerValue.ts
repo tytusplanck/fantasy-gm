@@ -31,11 +31,7 @@ export interface PlayerValueResult {
 }
 
 export function evaluatePlayerValue(input: PlayerValueInput): PlayerValueResult {
-  const relevantText = [input.playerValues, input.playerNotes, input.externalRankings]
-    .join("\n")
-    .split("\n")
-    .filter((line) => line.toLowerCase().includes(input.playerName.toLowerCase()))
-    .join("\n");
+  const relevantText = findRelevantPlayerText(input.playerName, [input.playerValues, input.playerNotes, input.externalRankings]);
   const currentValueTier = tierFromNotes(relevantText);
   const riskProfile = inferRisk(relevantText);
   const direction = inferDirection(relevantText);
@@ -60,18 +56,42 @@ export function evaluatePlayerValue(input: PlayerValueInput): PlayerValueResult 
   };
 }
 
+export function findRelevantPlayerText(playerName: string, sources: string[]): string {
+  const needle = playerName.toLowerCase();
+  const hits = new Set<string>();
+  for (const source of sources) {
+    for (const block of source.split(/\n(?=### )/)) {
+      const trimmed = block.trim();
+      if (trimmed.toLowerCase().includes(needle)) {
+        hits.add(trimmed);
+      }
+    }
+    for (const line of source.split("\n")) {
+      const trimmed = line.trim();
+      if (trimmed.toLowerCase().includes(needle)) {
+        hits.add(trimmed);
+      }
+    }
+  }
+  return [...hits].join("\n\n");
+}
+
 function inferBestUse(text: string, tier: ValueTier, risk: RiskLabel): BestUse {
   const normalized = text.toLowerCase();
-  if (normalized.includes("avoid")) {
+  const explicitBestUse = normalized.match(/\bbest use:\s*(buy|sell|hold|avoid|shop quietly)\b/);
+  if (explicitBestUse?.[1]) {
+    return toBestUse(explicitBestUse[1]);
+  }
+  if (/\bavoid\b/.test(normalized)) {
     return "Avoid";
   }
-  if (normalized.includes("shop quietly")) {
+  if (/\bshop quietly\b/.test(normalized)) {
     return "Shop quietly";
   }
-  if (normalized.includes("buy")) {
+  if (/\bbuy\b/.test(normalized)) {
     return "Buy";
   }
-  if (normalized.includes("sell")) {
+  if (/\bsell\b/.test(normalized)) {
     return "Sell";
   }
   if (risk === "Fragile" || risk === "Volatile") {
@@ -81,6 +101,21 @@ function inferBestUse(text: string, tier: ValueTier, risk: RiskLabel): BestUse {
     return "Hold";
   }
   return "Hold";
+}
+
+function toBestUse(value: string): BestUse {
+  switch (value) {
+    case "buy":
+      return "Buy";
+    case "sell":
+      return "Sell";
+    case "avoid":
+      return "Avoid";
+    case "shop quietly":
+      return "Shop quietly";
+    default:
+      return "Hold";
+  }
 }
 
 function formatAdjustment(leagueSettings: string, position?: string): string {

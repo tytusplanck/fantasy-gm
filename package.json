@@ -8,11 +8,12 @@
     "node": ">=22"
   },
   "scripts": {
-    "sync:sleeper": "tsx src/cli/syncSleeper.ts",
-    "trade": "tsx src/cli/analyzeTrade.ts",
-    "compare": "tsx src/cli/comparePlayers.ts",
-    "value": "tsx src/cli/valuePlayer.ts",
-    "memory:update": "tsx src/cli/updateMemory.ts",
+    "sync:sleeper": "node --import tsx src/cli/syncSleeper.ts",
+    "trade": "node --import tsx src/cli/analyzeTrade.ts",
+    "manager": "node --import tsx src/cli/analyzeManager.ts",
+    "compare": "node --import tsx src/cli/comparePlayers.ts",
+    "value": "node --import tsx src/cli/valuePlayer.ts",
+    "memory:update": "node --import tsx src/cli/updateMemory.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },

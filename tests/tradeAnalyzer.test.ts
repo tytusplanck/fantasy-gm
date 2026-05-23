@@ -21,6 +21,6 @@ describe("trade analyzer", () => {
     });
 
     expect(result.recommendation).toBe("Explore");
-    expect(result.dataGaps).toContain("No normalized Sleeper context found. Run pnpm sync:sleeper after configuring .env.");
+    expect(result.dataGaps).toContain("No normalized Sleeper context found. Run corepack pnpm sync:sleeper after configuring .env.");
   });
 });

@@ -12,15 +12,15 @@ ${result.summary}
 
 ## 2. Current Roster Needs
 
-Not enough structured context yet. Use normalized Sleeper rosters plus manager tendencies to fill this in.
+${result.currentRosterNeeds.map((item) => `- ${item}`).join("\n")}
 
 ## 3. Likely Motivations
 
-Likely motivation should be inferred from roster build, standings, injuries, and prior trades.
+${result.likelyMotivations.map((item) => `- ${item}`).join("\n")}
 
 ## 4. Known Tendencies
 
-Review \`data/memory/manager-tendencies.md\`.
+${result.knownTendencies.map((item) => `- ${item}`).join("\n")}
 
 ## 5. Evidence
 
@@ -36,10 +36,18 @@ ${result.negotiationAngle}
 
 ## 8. Players/Assets They May Value
 
-Unknown until roster and tendency context are reviewed.
+${result.playersOrAssetsTheyMayValue.map((item) => `- ${item}`).join("\n")}
 
 ## 9. Players/Assets They May Be Willing To Move
 
-Unknown until roster and tendency context are reviewed.
+${result.playersOrAssetsTheyMayBeWillingToMove.map((item) => `- ${item}`).join("\n")}
+
+## Suggested Memory Updates
+
+${result.suggestedMemoryUpdates.length > 0 ? result.suggestedMemoryUpdates.map((item) => `- ${item}`).join("\n") : "- No new durable manager note suggested."}
+
+## Data Gaps
+
+${result.dataGaps.length > 0 ? result.dataGaps.map((item) => `- ${item}`).join("\n") : "- No major gaps identified."}
 `;
 }

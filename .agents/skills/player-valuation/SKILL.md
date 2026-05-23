@@ -14,16 +14,17 @@ Use this skill when the user asks:
 ## Workflow
 
 1. Load `data/memory/league-settings.md`.
-2. Load `data/memory/player-values.md`.
-3. Load `data/memory/player-notes.md`.
-4. Load `data/memory/strategy.md`.
-5. Load `data/memory/external-rankings.md` if present.
-6. Use Sleeper player metadata from `data/sleeper` when available.
-7. Evaluate player value by format.
-8. Compare to similar assets.
-9. Identify whether the player is a buy, sell, hold, avoid, or shop quietly.
-10. Give realistic trade ranges.
-11. Offer notes worth saving.
+2. Load `data/memory/context-map.md` when present for freshness and memory-update rules.
+3. Load `data/memory/player-values.md`.
+4. Load `data/memory/player-notes.md`.
+5. Load `data/memory/strategy.md`.
+6. Load `data/memory/external-rankings.md` if present.
+7. Use Sleeper player metadata from `data/sleeper` when available.
+8. Evaluate player value by format.
+9. Compare to similar assets.
+10. Identify whether the player is a buy, sell, hold, avoid, or shop quietly.
+11. Give realistic trade ranges.
+12. Offer notes worth saving.
 
 ## Output Format
 
@@ -43,3 +44,4 @@ Use this skill when the user asks:
 - League format comes first.
 - Separate durable notes from market assumptions.
 - Do not treat pasted rankings or calculators as absolute truth.
+- Use `corepack pnpm value -- "Player Name"` as a helper report generator when useful; do not treat it as a substitute for full context review.

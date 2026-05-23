@@ -6,6 +6,7 @@ import type { NormalizedLeagueContext, NormalizedPlayerRef } from "../sleeper/no
 
 export interface MemoryContext {
   leagueSettings: string;
+  contextMap: string;
   myTeam: string;
   playerValues: string;
   playerNotes: string;
@@ -20,6 +21,7 @@ export interface MemoryContext {
 export async function loadMemoryContext(): Promise<MemoryContext> {
   return {
     leagueSettings: await readTextIfExists(rootPath("data", "memory", "league-settings.md")),
+    contextMap: await readTextIfExists(rootPath("data", "memory", "context-map.md")),
     myTeam: await readTextIfExists(rootPath("data", "memory", "my-team.md")),
     playerValues: await readTextIfExists(rootPath("data", "memory", "player-values.md")),
     playerNotes: await readTextIfExists(rootPath("data", "memory", "player-notes.md")),

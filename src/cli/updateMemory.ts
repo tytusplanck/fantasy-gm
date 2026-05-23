@@ -52,12 +52,67 @@ export function buildMemoryEntry(input: {
   target?: MemoryTarget | undefined;
   manager?: string | undefined;
   player?: string | undefined;
+  confidence?: string | undefined;
+  evidence?: string | undefined;
+  position?: string | undefined;
+  team?: string | undefined;
+  format?: string | undefined;
+  valueTier?: string | undefined;
+  direction?: string | undefined;
 }): string {
+  const date = input.date ?? dateStamp();
+  if (input.target === "manager-tendencies") {
+    const label = input.manager ?? "Manager note";
+    return [
+      "",
+      `### ${date} - ${label}`,
+      "",
+      `- Date: ${date}`,
+      `- Manager: ${input.manager ?? ""}`,
+      `- Tendency: ${input.note.trim()}`,
+      `- Evidence: ${input.evidence ?? ""}`,
+      `- Confidence: ${input.confidence ?? "Low"}`,
+      `- Source: ${input.source ?? "User note"}`
+    ].join("\n");
+  }
+
+  if (input.target === "player-values") {
+    const label = input.player ?? "Player note";
+    return [
+      "",
+      `### ${date} - ${label}`,
+      "",
+      `- Date: ${date}`,
+      `- Player: ${input.player ?? ""}`,
+      `- Position: ${input.position ?? ""}`,
+      `- NFL team: ${input.team ?? ""}`,
+      `- Format: ${input.format ?? ""}`,
+      `- Value tier: ${input.valueTier ?? ""}`,
+      `- Direction: ${input.direction ?? ""}`,
+      `- Note: ${input.note.trim()}`,
+      `- Source: ${input.source ?? "User note"}`
+    ].join("\n");
+  }
+
+  if (input.target === "player-notes") {
+    const label = input.player ?? "Player note";
+    return [
+      "",
+      `### ${date} - ${label}`,
+      "",
+      `- Date: ${date}`,
+      `- Player: ${input.player ?? ""}`,
+      `- Note: ${input.note.trim()}`,
+      `- Confidence: ${input.confidence ?? "Low"}`,
+      `- Source: ${input.source ?? "User note"}`
+    ].join("\n");
+  }
+
   const lines = [
     "",
-    `## ${input.date ?? dateStamp()}`,
+    `## ${date}`,
     "",
-    `- Date: ${input.date ?? dateStamp()}`,
+    `- Date: ${date}`,
     input.target ? `- File: ${input.target}` : undefined,
     input.manager ? `- Manager: ${input.manager}` : undefined,
     input.player ? `- Player: ${input.player}` : undefined,
@@ -73,7 +128,30 @@ async function main(): Promise<void> {
   const source = parseFlag(args, "--source") ?? "User note";
   const manager = parseFlag(args, "--manager");
   const player = parseFlag(args, "--player");
-  const note = await promptIfMissing(positionalArgs(args, ["--file", "--target", "--source", "--manager", "--player"]).join(" "), "Memory note: ");
+  const confidence = parseFlag(args, "--confidence");
+  const evidence = parseFlag(args, "--evidence");
+  const position = parseFlag(args, "--position");
+  const team = parseFlag(args, "--team");
+  const format = parseFlag(args, "--format");
+  const valueTier = parseFlag(args, "--value-tier");
+  const direction = parseFlag(args, "--direction");
+  const note = await promptIfMissing(
+    positionalArgs(args, [
+      "--file",
+      "--target",
+      "--source",
+      "--manager",
+      "--player",
+      "--confidence",
+      "--evidence",
+      "--position",
+      "--team",
+      "--format",
+      "--value-tier",
+      "--direction"
+    ]).join(" "),
+    "Memory note: "
+  );
   const target = resolveMemoryTarget(note, requestedTarget);
   const filePath = rootPath("data", "memory", MEMORY_FILES[target]);
   await appendTextFile(
@@ -83,7 +161,14 @@ async function main(): Promise<void> {
       source,
       target,
       manager,
-      player
+      player,
+      confidence,
+      evidence,
+      position,
+      team,
+      format,
+      valueTier,
+      direction
     })
   );
   info(`Saved memory note to ${filePath}`);

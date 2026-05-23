@@ -6,18 +6,44 @@ describe("memory update helpers", () => {
     expect(resolveMemoryTarget("Sam tends to overvalue rookies")).toBe("manager-tendencies");
   });
 
-  it("preserves history as an appended dated entry", () => {
+  it("uses the manager tendency template for manager memory", () => {
     const entry = buildMemoryEntry({
       note: "Sam tends to overvalue rookies.",
       source: "User note",
       date: "2026-05-16",
       target: "manager-tendencies",
-      manager: "Sam"
+      manager: "Sam",
+      evidence: "Two rookie-overpay offers after the NFL draft.",
+      confidence: "Medium"
     });
 
-    expect(entry).toContain("## 2026-05-16");
+    expect(entry).toContain("### 2026-05-16 - Sam");
     expect(entry).toContain("- Manager: Sam");
+    expect(entry).toContain("- Tendency: Sam tends to overvalue rookies.");
+    expect(entry).toContain("- Evidence: Two rookie-overpay offers after the NFL draft.");
+    expect(entry).toContain("- Confidence: Medium");
     expect(entry).toContain("- Source: User note");
-    expect(entry).toContain("- Note: Sam tends to overvalue rookies.");
+  });
+
+  it("uses the player value template for player value memory", () => {
+    const entry = buildMemoryEntry({
+      note: "Worth more than a single late 2nd in this format.",
+      source: "Analysis",
+      date: "2026-05-16",
+      target: "player-values",
+      player: "David Montgomery",
+      position: "RB",
+      team: "DET",
+      valueTier: "Useful starter",
+      direction: "Volatile"
+    });
+
+    expect(entry).toContain("### 2026-05-16 - David Montgomery");
+    expect(entry).toContain("- Player: David Montgomery");
+    expect(entry).toContain("- Position: RB");
+    expect(entry).toContain("- NFL team: DET");
+    expect(entry).toContain("- Value tier: Useful starter");
+    expect(entry).toContain("- Direction: Volatile");
+    expect(entry).toContain("- Note: Worth more than a single late 2nd in this format.");
   });
 });

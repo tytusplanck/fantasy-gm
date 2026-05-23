@@ -28,6 +28,9 @@ async function main(): Promise<void> {
   await writeTextFile(reportPath, report);
 
   info(`${result.recommendation} (${result.confidence} confidence): ${result.simpleVerdict}`);
+  if (result.suggestedMemoryUpdates.length > 0) {
+    info(`Suggested memory update: ${result.suggestedMemoryUpdates[0]}`);
+  }
   info(`Report: ${reportPath}`);
 }
 

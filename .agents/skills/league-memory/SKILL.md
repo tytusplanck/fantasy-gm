@@ -31,6 +31,7 @@ Use this skill when the user says:
 - Pick market: `data/memory/draft-pick-values.md`
 - Long-term philosophy: `data/memory/strategy.md`
 - Pasted rankings and projections: `data/memory/external-rankings.md`
+- Fresh-agent read order and save triggers: `data/memory/context-map.md`
 
 ## Guardrails
 
