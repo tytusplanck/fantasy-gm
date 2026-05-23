@@ -7,7 +7,7 @@ Use this file as durable memory for my roster identity and team-building plan.
 - Manager: tytusplanck
 - Team name: Drumheads
 - League: Living Big Fantasy Football League 2026
-- Format: 12-team 1QB half-PPR dynasty with 10 starters, 15 bench, 5 taxi, 5 reserve, pick trading, and pre-draft status.
+- Format: 12-team 1QB half-PPR dynasty with 9 starters, 13 bench, 5 taxi, 5 reserve, pick trading, and pre-draft status.
 - Status: Contender, but not a full all-in team.
 
 ## Core Players
@@ -21,11 +21,12 @@ Use this file as durable memory for my roster identity and team-building plan.
 ## Expendable Players
 
 - David Montgomery is movable only if the return accounts for lost starter/flex production; he should not be treated as a pure age-based sell in this format.
+- Mack Hollins, Marquez Valdes-Scantling, and Noah Gray were dropped for roster compliance after the May 2026 roster rule update; do not assume they are still on Drumheads unless reacquired.
 
 ## Roster Holes
 
 - RB depth gets thin after Bijan Robinson, David Montgomery, Tyler Allgeier, and Jaylen Warren.
-- In this start-10 format with 4 W/R/T flex spots, usable RB depth has more weekly value than in shallower dynasty formats.
+- In the current start-9 format with 2 W/R/T flex spots, usable RB depth still matters, but marginal bench depth is less protected than it was under the prior 4-flex setup.
 
 ## Strategy Notes
 
@@ -57,3 +58,9 @@ Add dated updates here. Preserve old context unless explicitly asked to revise i
 
 - Source: Analysis based on refreshed Sleeper roster context and current dynasty market research.
 - Note: Team direction is contender, not rebuild, but should not be treated as a blank-check win-now roster. Recommended posture is roughly 65-70% win-now: pursue starting-lineup upgrades, avoid cheap sales of current RB production, and preserve 2027 1st-level liquidity until Weeks 4-6 clarify the championship odds.
+
+### 2026-05-23
+
+- Source: User-confirmed roster maintenance after API-derived roster compliance review.
+- Note: User dropped Mack Hollins, Marquez Valdes-Scantling, and Noah Gray to comply with the updated roster settings. No Sleeper action was taken from this repo.
+- Note: Current active roster target is 22 players under the updated setup: QB, RB, RB, WR, WR, WR, TE, FLEX, FLEX, and 13 bench spots.
