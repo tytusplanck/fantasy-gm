@@ -9,13 +9,14 @@ Use this file for league format and rules that change player and trade values.
 - Season: 2026
 - Platform: Sleeper
 - Sleeper league ID: 1336908184048107520
-- League name: Living Big Fantasy Football League 2026
+- League name: Living Big Fantasy Football League
 - Current status: pre-draft / `pre_draft`
 
 ## Roster Positions
 
-- Starting lineup: QB, RB, RB, WR, WR, TE, FLEX, FLEX, FLEX, FLEX
-- Bench: 15
+- Starting lineup: QB, RB, RB, WR, WR, WR, TE, FLEX, FLEX
+- Bench: 13
+- API-exposed roster limits: max 4 QBs (`position_limit_qb = 4`); no other position-specific limit fields appeared in the latest API snapshot
 - Taxi: 5 slots, non-rookies not allowed, 3-year experience limit, deadline is start of regular season
 - IR: 5 reserve slots; COVID allowed; doubtful/out/suspended/NA/DNR not allowed by API settings
 
@@ -37,13 +38,13 @@ Use this file for league format and rules that change player and trade values.
 
 ## Notes And Weird Settings
 
-- FAAB budget: 100
+- FAAB budget: 150
 - Daily waivers enabled
-- Waiver processing time: 10 AM EDT
-- After-games waivers clear: None
+- Waiver processing time: API hour `0`; likely midnight Pacific / 3 AM EDT if Sleeper's API hour uses the same Pacific-time mapping as the prior UI-observed setting
+- After-games waivers clear: Tuesday after day (`waiver_day_of_week = 1`)
 - Dropped players stay on waivers: 1 day
-- Custom daily waiver setting: Monday through Sunday locked
-- Waiver type: FAAB
+- Custom daily waiver setting: Monday through Sunday Waivers (`daily_waivers_days = 5461`, base-4 `1111111`)
+- Waiver type: FAAB, $0 minimum bid, FAAB suggestions enabled
 - League average matchup enabled
 - Trade review period: 2 days
 - Veto votes needed: 6
@@ -69,3 +70,11 @@ Add dated changes or clarifications here.
 - Note: Verified league type is Dynasty. Verified roster settings are 1 QB, 2 RB, 2 WR, 1 TE, 4 W/R/T FLEX, 0 W/R FLEX, 0 W/T FLEX, 0 Q/W/R/T FLEX, 0 IDP FLEX, 0 K, 0 DEF, 0 DL, 0 LB, 0 DB, and 15 BN.
 - Note: Verified general settings: 12 teams, FAAB bidding, $100 waiver budget, $0 minimum bid, after-games waivers clear None, dropped players stay on waivers 1 day, custom daily waivers enabled, processing time 10 AM EDT, Monday through Sunday locked, trade review 2 days, trade deadline 13th/week 13, playoffs start week 15, 6 playoff teams, one week per playoff round, re-seed enabled, lower bracket consolation bracket.
 - Note: Verified IR/taxi/dynasty settings: 5 IR slots, COVID allowed on IR, OUT/suspended/NA/DNR/doubtful not allowed on IR, draft pick trading enabled, extra game against league median enabled, moves pre-draft allowed, bench players cannot be dropped after their game starts, free agent/waiver moves are not locked, 5 supplemental draft rounds, 5 taxi slots, non-rookies not allowed on taxi, 3-year taxi experience limit, taxi deadline start of regular season.
+
+### 2026-05-23
+
+- Source: API-derived from Sleeper sync `2026-05-23T14-16-34-123Z`.
+- Note: Current roster settings are 1 QB, 2 RB, 3 WR, 1 TE, 2 W/R/T FLEX, and 13 BN. Taxi remains 5 slots and IR/reserve remains 5 slots.
+- Note: Sleeper API exposes a QB roster limit of 4 (`position_limit_qb = 4`); no other `position_limit_*` keys appeared in the latest league settings payload.
+- Note: Waiver/FAAB settings changed to $150 FAAB budget, $0 minimum bid, FAAB suggestions enabled, custom daily waivers enabled, all seven custom waiver days set to Waivers (`daily_waivers_days = 5461`, base-4 `1111111`), after-games waivers clear Tuesday after day (`waiver_day_of_week = 1`), dropped players stay on waivers 1 day, and processing hour is API value `0`.
+- Note: The 2026-05-16 UI-observed lineup, bench, FAAB budget, after-games waiver, custom daily waiver, and processing-time notes are historical and superseded by this API-derived snapshot.
