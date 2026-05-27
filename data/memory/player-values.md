@@ -27,3 +27,15 @@ Track player-specific valuation takes. Include date, player, position, team, for
 - Direction: Volatile
 - Note: 2026 2.08 alone is light because it does not replace Montgomery's weekly utility. A fairer structure should add a meaningful young player, another 2nd-level asset, or create a draft tier-up.
 - Source: User-supplied summary of prior Sleeper/Chrome, KeepTradeCut, DynastyCalc, and analysis work.
+
+### 2026-05-27 - Jayden Higgins
+
+- Date: 2026-05-27
+- Player: Jayden Higgins
+- Position: WR
+- NFL team: Houston Texans
+- Format: 12-team 1QB half-PPR dynasty, start 9 with 2 W/R/T flexes.
+- Value tier: Young WR liquidity/upside piece near David Montgomery's broad dynasty market range, but not enough alone to make losing Montgomery painless for Drumheads' current RB depth.
+- Direction: Stable / uncertain upside
+- Note: Kirk/storerka offered Higgins for Montgomery. User outright declined. Straight-up acceptance would have been defensible only if intentionally selling aging RB exposure before the season; preferred price was Higgins plus a small future pick or upside piece.
+- Source: User screenshot, refreshed Sleeper snapshot, local trade analysis, and user note that the offer was declined.
