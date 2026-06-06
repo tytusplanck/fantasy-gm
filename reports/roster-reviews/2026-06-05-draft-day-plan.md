@@ -1,14 +1,65 @@
 # 2026-06-05 Draft Day Plan
 
+## Live State - 2026-06-06
+
+Latest read used direct Sleeper API calls because the full repo sync could not write a snapshot with the filesystem at 100% capacity. No Sleeper action was taken.
+
+Current draft state:
+
+1. 1.01 Bigpat54 - Jeremiyah Love, RB ARI
+2. 1.02 bschermerhorn - Carnell Tate, WR TEN
+3. 1.03 WillyTime - Jordyn Tyson, WR NO
+4. 1.04 tomplanck - Jadarian Price, RB SEA
+5. 1.05 stevensonbrody224 - Makai Lemon, WR PHI
+6. 1.06 kevinschraff - KC Concepcion, WR CLE
+7. 1.07 tytusplanck - Omar Cooper Jr., WR NYJ
+
+Current pick: 1.08, storerka's original pick, owned by Bigpat54.
+
+Drumheads current state: 1.07 is resolved. Remaining picks are 2.07, 3.07, 4.07, and 5.07. The live roster endpoint still shows 22 active players and 3 taxi players, with Isaiah Davis, Jaylin Noel, and Phil Mafah on taxi. Omar Cooper Jr. is visible in the draft-pick endpoint but not yet in the roster endpoint while the draft is ongoing. With 2 open taxi slots, Drumheads can currently taxi Cooper plus one more rookie without clearing another taxi slot.
+
+Current strategy: do not treat late 2026 second-round picks as strong compensation in this class. At 2.07, prefer a RB/WR with a real path, or use the pick as liquidity for a future 2nd/player if the board is flat.
+
 ## Snapshot
+
+This section is the original 2026-06-05 snapshot. The `Live State - 2026-06-06` section above supersedes it where draft status or roster/taxi state differs.
 
 - League: Living Big Fantasy Football League, 12-team 1QB half-PPR dynasty.
 - Roster rules: QB, RB, RB, WR, WR, WR, TE, FLEX, FLEX, 13 bench, 5 taxi, 5 IR, no superflex, no TE premium.
-- Sleeper state: `drafting` as of the 2026-06-05 sync.
-- First pick made: Bigpat54 selected Jeremiyah Love, RB ARI, at 1.01.
+- Sleeper state: `drafting` as of the 2026-06-05 20:37 UTC sync.
+- Picks made: 1.01 Jeremiyah Love, 1.02 Carnell Tate, 1.03 Jordyn Tyson.
+- Current pick state: 1.04 tomplanck is on the clock in the latest API snapshot.
 - Drumheads picks: 1.07, 2.07, 3.07, 4.07, 5.07.
 - Traded pick note: Bigpat54 owns storerka's original 1.08 and also owns extra 2026 2nds.
 - No Sleeper action was taken.
+
+## Current Draft Status
+
+Latest Sleeper API sync: `data/sleeper/normalized/2026-06-05T20-37-40-460Z--league-context.json`.
+
+Picks made:
+
+1. 1.01 Bigpat54 - Jeremiyah Love, RB ARI
+2. 1.02 bschermerhorn - Carnell Tate, WR TEN
+3. 1.03 WillyTime - Jordyn Tyson, WR NO
+
+Still before Drumheads:
+
+1. 1.04 tomplanck
+2. 1.05 stevensonbrody224
+3. 1.06 kevinschraff
+4. 1.07 tytusplanck
+
+Current simple board for 1.07: Jadarian Price, Makai Lemon, KC Concepcion, then trade back. If all three are gone, Omar Cooper Jr. is the preferred forced pick over Kenyon Sadiq or Fernando Mendoza.
+
+## Roster Moves Since 17:09 UTC Snapshot
+
+- Drumheads dropped Javon Baker from the roster/taxi. Current normalized count is 25 total listed players, including 3 taxi players, which implies 22 active players and 2 open taxi slots.
+- kevinschraff dropped DeAndre Hopkins.
+- bschermerhorn dropped Ben Sinnott, Curtis Samuel, George Holani, Hassan Haskins, Jonathan Mingo, Ty Chandler, and Zavier Scott. Reserve/taxi records also changed for Austin Ekeler, Curtis Samuel, George Holani, Kendre Miller, and Ben Sinnott.
+- kevinschraff and bschermerhorn also filled previously empty starter slots in the API lineup view.
+
+Practical impact: Drumheads has a little more taxi flexibility after dropping Baker, but the active roster remains tight. Draft picks after the first two or three selections still need to beat replaceable depth or be taxi-eligible.
 
 ## Team Read
 
@@ -18,22 +69,20 @@ Current roster implications:
 
 - QB is not a first-round need. Bo Nix and Trevor Lawrence are good enough in this 1QB format, and the league has a 4-QB roster limit.
 - RB is the clearest roster need. Bijan Robinson is elite, but the room gets thinner after David Montgomery, Jaylen Warren, Tyler Allgeier, J.K. Dobbins, Dylan Sampson, Isaiah Davis, Jaleel McLaughlin, Justice Hill, and Phil Mafah.
-- WR is also a priority because Stefon Diggs and Tyler Lockett are aging/free-agent-risk depth, while Keon Coleman, Jaylin Noel, Javon Baker, and Calvin Austin are not bankable weekly starters.
+- WR is also a priority because Stefon Diggs and Tyler Lockett are aging/free-agent-risk depth, while Keon Coleman, Jaylin Noel, and Calvin Austin are not bankable weekly starters.
 - TE is a low first-round priority because this is non-TE-premium and Sam LaPorta already anchors the position. David Njoku and Juwan Johnson also reduce urgency.
-- Roster spots are tight. The current roster is effectively full with 22 active players and 4 taxi players, so every drafted player after the one open taxi slot creates a future cut/taxi decision.
+- Roster spots are tight. The current roster is effectively full with 22 active players and 3 taxi players, so every drafted player creates a future cut/taxi decision unless moved into one of the 2 open taxi slots.
 
 ## Expected Picks Before 1.07
 
 Pick order before Drumheads:
 
-1. 1.02 bschermerhorn
-2. 1.03 WillyTime
-3. 1.04 tomplanck
-4. 1.05 stevensonbrody224
-5. 1.06 kevinschraff
-6. 1.07 tytusplanck
+1. 1.04 tomplanck
+2. 1.05 stevensonbrody224
+3. 1.06 kevinschraff
+4. 1.07 tytusplanck
 
-None of the five teams ahead has a clean 1QB need. That makes WR/RB chalk likely. The realistic expectation is that most or all of Carnell Tate, Jordyn Tyson, Makai Lemon, Jadarian Price, and KC Concepcion are gone before 1.07. If one falls, take the value.
+The first three picks removed Jeremiyah Love, Carnell Tate, and Jordyn Tyson. None of the three remaining teams ahead has a clean 1QB need, so WR/RB chalk is still likely. The practical question is whether Jadarian Price, Makai Lemon, or KC Concepcion reaches 1.07. If one does, take the value.
 
 ## 1.07 On-Clock Board
 
@@ -41,17 +90,15 @@ None of the five teams ahead has a clean 1QB need. That makes WR/RB chalk likely
 
 If any of these players is available at 1.07, pick the highest remaining player from this group:
 
-1. Carnell Tate, WR TEN
-2. Jordyn Tyson, WR NO
-3. Jadarian Price, RB SEA
-4. Makai Lemon, WR PHI
-5. KC Concepcion, WR CLE
+1. Jadarian Price, RB SEA
+2. Makai Lemon, WR PHI
+3. KC Concepcion, WR CLE
 
-Reasoning: Tate/Tyson/Lemon are the best asset-value WR bets. Price is the cleanest roster fit because Drumheads needs RB depth with a workload path. Concepcion is the likely best realistic outcome if one of the early WR/RB values slips.
+Reasoning: Price is the cleanest roster fit because Drumheads needs RB depth with a workload path. Lemon is the best remaining young WR asset from the original top group. Concepcion is the likely best realistic outcome if the board goes chalk through 1.06.
 
 ### Trade-Back Tier
 
-If those five are gone, shop 1.07 before making a pick. The next names have value, but they are not clean enough for this roster to auto-pick at cost:
+If Price, Lemon, and Concepcion are gone, shop 1.07 before making a pick. The next names have value, but they are not clean enough for this roster to auto-pick at cost:
 
 - Omar Cooper Jr., WR NYJ
 - Kenyon Sadiq, TE NYJ
@@ -85,7 +132,7 @@ Do not trade back below 1.12 unless the return includes a 2027 1st, a future 2nd
 Do not chase unless a preferred tier player is clearly about to be taken.
 
 - To move from 1.07 to 1.06: offer 3.07 first, then 3.07 plus 4.07 if needed.
-- Do not spend 2.07 to move up one spot unless Tate, Tyson, Price, or Lemon is the player you are locking in.
+- Do not spend 2.07 to move up one spot unless Price or Lemon is the player you are locking in.
 - Do not pay up for Fernando Mendoza, Kenyon Sadiq, or another TE/QB in this roster format.
 
 ## Round 2 Plan: 2.07
@@ -181,14 +228,14 @@ If you want to trade up one spot:
 
 - This 2026 class has a real tier break. If the top WR/RB group is gone, forcing the pick can leave Drumheads with an illiquid TE/QB or a secondary WR with shaky target competition.
 - Drafting Price for roster need can backfire if the Seattle workload is less clean than expected.
-- Drafting Tyson adds injury risk.
+- Drafting Lemon or Concepcion keeps the roster younger at WR, but it does not directly solve the RB depth issue.
 - Drafting Concepcion or Cooper adds quarterback/situation risk.
 - Trading back too far can turn a useful first into multiple roster-clogging darts when roster spots are already tight.
 - Taking a QB in Round 1 creates a roster-limit problem without improving the starting lineup.
 
 ## Sources Checked
 
-- Sleeper API sync: `data/sleeper/normalized/2026-06-05T17-09-51-798Z--league-context.json` and raw draft payload.
+- Sleeper API sync: `data/sleeper/normalized/2026-06-05T17-09-51-798Z--league-context.json`, `data/sleeper/normalized/2026-06-05T20-37-40-460Z--league-context.json`, and raw draft payloads.
 - Local memory: `data/memory/context-map.md`, `league-settings.md`, `my-team.md`, `strategy.md`, `draft-pick-values.md`, `player-values.md`, manager notes, and prior reports.
 - FantasyPros rookie ADP: https://www.fantasypros.com/nfl/adp/rookies.php
 - Fantasy Orphans recent Sleeper rookie ADP: https://fantasyorphans.com/rookie-draft-adp
